@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { LessonModule } from './lesson/lesson.module';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 @Module({
   imports: [
-    GraphQLModule.forRoot<ApolloDriverConfig>({
+    GraphQLModule.forRoot({
       driver: ApolloDriver,
-      autoSchemaFile: true,
-    });,
-  LessonModule
-  ],
+      autoSchemaFile:true,
+    }),
+    LessonModule,
+  ], 
 })
-export class AppModule { }
+export class AppModule {}
