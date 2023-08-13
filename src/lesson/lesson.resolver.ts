@@ -9,7 +9,7 @@ export class LessonResolver {
         id:"12345",
         name:'Physics class',
         startDate:(new Date()).toISOString(),
-        endDate:(new Date().toISOString())
+        endDate:(new Date()).toISOString()
      }
   }
 }
