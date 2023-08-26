@@ -8,21 +8,18 @@ export class LessonResolver {
       private lessonService: LessonService
    ) { }
    @Query(returns => LessonType)
-   lesson() {
-      return {
-         id: "12345",
-         name: 'Physics class',
-         startDate: (new Date()).toISOString(),
-         endDate: (new Date()).toISOString()
-      }
+   lesson(
+      @Args('id') id:string,
+   ) {
+      return this.lessonService.getLesson(id);
    }
 
    @Mutation(returns => LessonType)
    createLesson(
-   @Args('name') name: string,
-   @Args('startDate') startDate: string,
-   @Args('endDate') endDate: string
+      @Args('name') name: string,
+      @Args('startDate') startDate: string,
+      @Args('endDate') endDate: string
    ) {
-      return this.lessonService.createLesson(name , startDate , endDate)
+      return this.lessonService.createLesson(name, startDate, endDate)
    }
 }
